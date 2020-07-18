@@ -31,31 +31,37 @@ function FilterBuster() {
     setDoneEditing(true);
     setRandomizedSubject(addRandomizedCharacters(subject));
     setRandomizedBody(addRandomizedCharacters(body));
+    window.scrollTo(0, 0);
   }
   function onBackToEdit() {
+    window.scrollTo(0, 0);
     setDoneEditing(false);
   }
 
   function onOpenInMail() {
-    let recipientsList: string|null = query.get('to');
-    let ccList: string|null = query.get('cc');
+    let recipientsList: string | null = query.get('to');
+    let ccList: string | null = query.get('cc');
     if (ccList) {
       ccList = `cc=`.concat(ccList);
     } else {
       ccList = '';
     }
-    let bccList: string|null = query.get('bcc');
+    let bccList: string | null = query.get('bcc');
     if (bccList) {
       bccList = `&bcc=`.concat(bccList);
     } else {
-      bccList = ''
+      bccList = '';
     }
     let subjectString: string = '';
     if (randomizedSubject !== '') {
       subjectString = `&subject=${encodeURIComponent(randomizedSubject)}`;
     }
     let bodyString: string = `&body=${encodeURIComponent(randomizedBody)}`;
-    window.open(`mailto:${recipientsList?recipientsList:''}?${ccList}${bccList}${subjectString}${bodyString}`);
+    window.open(
+      `mailto:${
+        recipientsList ? recipientsList : ''
+      }?${ccList}${bccList}${subjectString}${bodyString}`
+    );
   }
 
   return (
