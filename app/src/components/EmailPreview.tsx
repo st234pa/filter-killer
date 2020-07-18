@@ -23,47 +23,36 @@ function EmailPreview(props: EmailPreviewProps) {
     <div>
       <Row>
         <Col>
-          <h2 className="break-word mb-4">
+          <h2 className="break-word">
             {props.subject ? props.subject : '[No Subject]'}
           </h2>
         </Col>
       </Row>
-      {props.to && (
-        <Row>
-          <Col>
-            <p>To: {props.to.replace(/,/g, ', ')}</p>
-          </Col>
-        </Row>
-      )}
-      {props.cc && (
-        <Row>
-          <Col>
-            <p>Cc: {props.cc.replace(/,/g, ', ')}</p>
-          </Col>
-        </Row>
-      )}
-      {props.bcc && (
-        <Row>
-          <Col>
-            <p>Cc: {props.bcc.replace(/,/g, ', ')}</p>
-          </Col>
-        </Row>
-      )}
+      <Row>
+        <Col>
+          {(props.to || props.cc || props.bcc) && <br className="mb-4" />}
+          {props.to && <p>To: {props.to.replace(/,/g, ', ')}</p>}
+          {props.cc && <p>Cc: {props.cc.replace(/,/g, ', ')}</p>}
+          {props.bcc && <p>Bcc: {props.bcc.replace(/,/g, ', ')}</p>}
+          <hr />
+        </Col>
+      </Row>
       <Row>
         <Col>
           <p className="preview-body">
             {props.body ? props.body : '[No body]'}
           </p>
+          <hr />
         </Col>
       </Row>
       <Row className="justify-content-md-center m-3">
-        <Col md={4}>
+        <Col md={4} className="mb-2">
           <Button block onClick={props.onBackToEdit} variant="secondary">
             Back to Edit
           </Button>
         </Col>
         <Col md={4}>
-          <Button block onClick={props.onOpenInMail}>
+          <Button block onClick={props.onOpenInMail} className="mb-2">
             Open in Mail
           </Button>
         </Col>
