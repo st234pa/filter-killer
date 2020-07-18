@@ -65,7 +65,7 @@ function FilterBuster() {
   }
 
   return (
-    <Container className="p-3">
+    <Container className="pt-3">
       <Row className="justify-content-md-center">
         <Col lg={8}>
           <h1 className="text-center mb-3">Filter Buster</h1>

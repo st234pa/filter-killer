@@ -20,7 +20,7 @@ function EmailPreview(props: EmailPreviewProps) {
     return null;
   }
   return (
-    <div>
+    <>
       <Row>
         <Col>
           {props.to && <p>To: {props.to.replace(/,/g, ', ')}</p>}
@@ -37,7 +37,7 @@ function EmailPreview(props: EmailPreviewProps) {
           <hr />
         </Col>
       </Row>
-      <Row className="justify-content-md-center m-3">
+      <Row className="justify-content-md-center mt-3 mb-3">
         <Col md={4} className="mb-2">
           <Button block onClick={props.onBackToEdit} variant="secondary">
             Back to Edit
@@ -49,7 +49,7 @@ function EmailPreview(props: EmailPreviewProps) {
           </Button>
         </Col>
       </Row>
-    </div>
+    </>
   );
 }
 

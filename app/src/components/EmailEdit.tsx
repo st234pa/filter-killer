@@ -22,7 +22,7 @@ function EmailEdit(props: EmailEditProps) {
     return null;
   }
   return (
-    <div>
+    <>
       {props.to && (
         <Row>
           <Col>
@@ -70,14 +70,14 @@ function EmailEdit(props: EmailEditProps) {
           })}
         </Col>
       </Row>
-      <Row className="justify-content-md-center m-3">
+      <Row className="justify-content-md-center mt-3 mb-3">
         <Col md={4}>
           <Button block onClick={props.onDoneEditing}>
             Done Editing
           </Button>
         </Col>
       </Row>
-    </div>
+    </>
   );
 }
 
