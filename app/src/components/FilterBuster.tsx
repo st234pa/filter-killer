@@ -28,10 +28,10 @@ function FilterBuster() {
   const [doneEditing, setDoneEditing] = React.useState<boolean>(false);
 
   function onDoneEditing() {
+    window.scrollTo(0, 0);
     setDoneEditing(true);
     setRandomizedSubject(addRandomizedCharacters(subject));
     setRandomizedBody(addRandomizedCharacters(body));
-    window.scrollTo(0, 0);
   }
   function onBackToEdit() {
     window.scrollTo(0, 0);
