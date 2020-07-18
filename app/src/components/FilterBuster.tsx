@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import EmailPreview from './EmailPreview';
+import EmailEdit from './EmailEdit';
 import { addRandomizedCharacters } from '../App';
 
 function useQuery() {
@@ -68,19 +68,16 @@ function FilterBuster() {
         <Col lg={8}>
           <Card>
             <Card.Body>
-              <EmailPreview
+              <EmailEdit
                 to={query.get('to')}
                 cc={query.get('cc')}
                 bcc={query.get('bcc')}
                 subject={subject}
-                randomizedSubject={randomizedSubject}
-                randomizedBody={randomizedBody}
                 body={body}
                 setSubject={setSubject}
                 setBody={setBody}
                 doneEditing={doneEditing}
                 onDoneEditing={onDoneEditing}
-                backToEdit={onBackToEdit}
               />
             </Card.Body>
           </Card>
