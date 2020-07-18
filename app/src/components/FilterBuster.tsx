@@ -96,6 +96,17 @@ function FilterBuster() {
         <Col lg={8}>
           <Card>
             <Card.Body className="pb-2">
+              <Row>
+                <Col>
+                  <h2 className="break-word">
+                    {subject ? subject : '[No Subject]'}
+                  </h2>
+                  {(query.get('to') ||
+                    query.get('cc') ||
+                    query.get('bcc') ||
+                    !doneEditing) && <br className="mb-4" />}
+                </Col>
+              </Row>
               <EmailEdit
                 to={query.get('to')}
                 cc={query.get('cc')}

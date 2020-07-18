@@ -23,14 +23,6 @@ function EmailPreview(props: EmailPreviewProps) {
     <div>
       <Row>
         <Col>
-          <h2 className="break-word">
-            {props.subject ? props.subject : '[No Subject]'}
-          </h2>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          {(props.to || props.cc || props.bcc) && <br className="mb-4" />}
           {props.to && <p>To: {props.to.replace(/,/g, ', ')}</p>}
           {props.cc && <p>Cc: {props.cc.replace(/,/g, ', ')}</p>}
           {props.bcc && <p>Bcc: {props.bcc.replace(/,/g, ', ')}</p>}
