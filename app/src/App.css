@@ -2,3 +2,6 @@
   color: #6c757d;
   font-size: small;
 }
+.preview-body {
+  white-space: pre-wrap;
+}

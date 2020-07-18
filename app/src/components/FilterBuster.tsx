@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import EmailEdit from './EmailEdit';
+import EmailPreview from './EmailPreview';
 import { addRandomizedCharacters } from '../App';
 
 function useQuery() {
@@ -30,10 +31,13 @@ function FilterBuster() {
     setDoneEditing(true);
     setRandomizedSubject(addRandomizedCharacters(subject));
     setRandomizedBody(addRandomizedCharacters(body));
-    // window.open(`mailto:${query.get('to')}`);
   }
   function onBackToEdit() {
     setDoneEditing(false);
+  }
+
+  function onOpenInMail() {
+    window.open(`mailto:${query.get('to')}`);
   }
 
   return (
@@ -67,7 +71,7 @@ function FilterBuster() {
       <Row className="justify-content-md-center">
         <Col lg={8}>
           <Card>
-            <Card.Body>
+            <Card.Body className="pb-2">
               <EmailEdit
                 to={query.get('to')}
                 cc={query.get('cc')}
@@ -78,6 +82,16 @@ function FilterBuster() {
                 setBody={setBody}
                 doneEditing={doneEditing}
                 onDoneEditing={onDoneEditing}
+              />
+              <EmailPreview
+                to={query.get('to')}
+                cc={query.get('cc')}
+                bcc={query.get('bcc')}
+                subject={randomizedSubject}
+                body={randomizedBody}
+                doneEditing={doneEditing}
+                onBackToEdit={onBackToEdit}
+                onOpenInMail={onOpenInMail}
               />
             </Card.Body>
           </Card>

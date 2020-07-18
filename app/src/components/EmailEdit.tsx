@@ -1,9 +1,9 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import Content from './Content';
 import { ContentCallback, ButtonCallback } from '../App';
-import CustomButton from './CustomButton';
 
 type EmailEditProps = {
   to: string | null;
@@ -70,7 +70,13 @@ function EmailEdit(props: EmailEditProps) {
           })}
         </Col>
       </Row>
-      <CustomButton label="Done Editing" onClick={props.onDoneEditing} />
+      <Row className="justify-content-md-center m-3">
+        <Col md={4}>
+          <Button block onClick={props.onDoneEditing}>
+            Done Editing
+          </Button>
+        </Col>
+      </Row>
     </div>
   );
 }
