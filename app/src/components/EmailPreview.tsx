@@ -30,7 +30,7 @@ function EmailPreview(props: EmailPreviewProps) {
       </Row>
       <Row>
         <Col>
-          {(props.to || props.cc || props.bcc) && <h2 className="mb-4" />}
+          {(props.to || props.cc || props.bcc) && <br className="mb-4" />}
           {props.to && <p>To: {props.to.replace(/,/g, ', ')}</p>}
           {props.cc && <p>Cc: {props.cc.replace(/,/g, ', ')}</p>}
           {props.bcc && <p>Bcc: {props.bcc.replace(/,/g, ', ')}</p>}
