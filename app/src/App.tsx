@@ -24,8 +24,7 @@ function randomCharacter() {
 }
 
 function addRandomizedCharacter(word: string) {
-  let randomizedWord = '';
-  const splitByPunctuation = word.split(/([.,\/#!$%\^&\*;:{}=\-_`~()"'])/);
+  const splitByPunctuation = word.split(/([.,/#!$%^&*;:{}=\-_`~()"'])/);
   if (word.length < 2) {
     return word;
   }
@@ -39,7 +38,7 @@ function addRandomizedCharacter(word: string) {
   }
   let returnStr = '';
   splitByPunctuation.forEach((substr) => {
-    returnStr = returnStr.concat(addRandomizedCharacter(substr))
+    returnStr = returnStr.concat(addRandomizedCharacter(substr));
   });
   return returnStr;
 }
