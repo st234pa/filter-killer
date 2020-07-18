@@ -46,12 +46,10 @@ function addRandomizedCharacter(word: string) {
 
 export function addRandomizedCharacters(content: string) {
   const words = content.split(/([\n\s])/);
-  console.log(words);
   let randomizedContent = '';
   words.forEach((value) => {
     randomizedContent += addRandomizedCharacter(value);
   });
-  console.log(randomizedContent);
   return randomizedContent;
 }
 

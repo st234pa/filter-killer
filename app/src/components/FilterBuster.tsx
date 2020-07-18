@@ -37,7 +37,25 @@ function FilterBuster() {
   }
 
   function onOpenInMail() {
-    window.open(`mailto:${query.get('to')}`);
+    let recipientsList: string|null = query.get('to');
+    let ccList: string|null = query.get('cc');
+    if (ccList) {
+      ccList = `cc=`.concat(ccList);
+    } else {
+      ccList = '';
+    }
+    let bccList: string|null = query.get('bcc');
+    if (bccList) {
+      bccList = `&bcc=`.concat(bccList);
+    } else {
+      bccList = ''
+    }
+    let subjectString: string = '';
+    if (randomizedSubject !== '') {
+      subjectString = `&subject=${encodeURIComponent(randomizedSubject)}`;
+    }
+    let bodyString: string = `&body=${encodeURIComponent(randomizedBody)}`;
+    window.open(`mailto:${recipientsList?recipientsList:''}?${ccList}${bccList}${subjectString}${bodyString}`);
   }
 
   return (
