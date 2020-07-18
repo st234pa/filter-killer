@@ -24,6 +24,11 @@ function randomCharacter() {
 }
 
 function addRandomizedCharacter(word: string) {
+  let randomizedWord = '';
+  const splitByPunctuation = word.split(/([.,\/#!$%\^&\*;:{}=\-_`~()"'])/);
+  splitByPunctuation.forEach((value) => {
+    console.log(value);
+  });
   if (word.length < 2) {
     return word;
   }
