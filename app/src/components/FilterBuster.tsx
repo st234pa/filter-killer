@@ -92,7 +92,7 @@ function FilterBuster() {
           </p>
         </Col>
       </Row>
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-md-center mb-3">
         <Col lg={8}>
           <Card>
             <Card.Body className="pb-2">
