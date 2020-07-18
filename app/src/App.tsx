@@ -26,26 +26,32 @@ function randomCharacter() {
 function addRandomizedCharacter(word: string) {
   let randomizedWord = '';
   const splitByPunctuation = word.split(/([.,\/#!$%\^&\*;:{}=\-_`~()"'])/);
-  splitByPunctuation.forEach((value) => {
-    console.log(value);
-  });
   if (word.length < 2) {
     return word;
   }
-  const randomIndex = randomNumber(1, word.length - 1);
-  return (
-    word.substring(0, randomIndex) +
-    randomCharacter() +
-    word.substring(randomIndex, word.length)
-  );
+  if (splitByPunctuation.length === 1) {
+    const randomIndex = randomNumber(1, word.length - 1);
+    return (
+      word.substring(0, randomIndex) +
+      randomCharacter() +
+      word.substring(randomIndex, word.length)
+    );
+  }
+  let returnStr = '';
+  splitByPunctuation.forEach((substr) => {
+    returnStr = returnStr.concat(addRandomizedCharacter(substr))
+  });
+  return returnStr;
 }
 
 export function addRandomizedCharacters(content: string) {
-  const words = content.split(' ');
+  const words = content.split(/([\n\s])/);
+  console.log(words);
   let randomizedContent = '';
   words.forEach((value) => {
-    randomizedContent += addRandomizedCharacter(value) + ' ';
+    randomizedContent += addRandomizedCharacter(value);
   });
+  console.log(randomizedContent);
   return randomizedContent;
 }
 
