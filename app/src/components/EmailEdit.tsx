@@ -48,7 +48,7 @@ function EmailEdit(props: EmailEditProps) {
         <Col>
           {Content({
             label: 'Subject:',
-            placeholder: 'No Subject',
+            placeholder: 'Type or paste subject line',
             action: props.setSubject,
             value: props.subject,
             helperText: 'For security reasons, content needs to be plain text',
@@ -61,7 +61,7 @@ function EmailEdit(props: EmailEditProps) {
         <Col>
           {Content({
             label: 'Body:',
-            placeholder: 'No Body',
+            placeholder: 'Type or paste email body',
             action: props.setBody,
             value: props.body,
             helperText: 'For security reasons, content needs to be plain text',
