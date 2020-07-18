@@ -99,7 +99,11 @@ function FilterBuster() {
               <Row>
                 <Col>
                   <h2 className="break-word">
-                    {subject ? subject : '[No Subject]'}
+                    {subject
+                      ? doneEditing
+                        ? subject
+                        : randomizedSubject
+                      : '[No Subject]'}
                   </h2>
                   {(query.get('to') ||
                     query.get('cc') ||
