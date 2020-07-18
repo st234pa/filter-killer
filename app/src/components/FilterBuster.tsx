@@ -4,14 +4,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import EmailPreview from './EmailPreview';
+import EmailEdit from './EmailEdit';
 import { addRandomizedCharacters } from '../App';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function FilterKiller() {
+function FilterBuster() {
   let query = useQuery();
   // ex. <homepage>?to=<to>&bcc=<bcc>
   const templateSubject = query.get('subject');
@@ -30,7 +30,7 @@ function FilterKiller() {
     setDoneEditing(true);
     setRandomizedSubject(addRandomizedCharacters(subject));
     setRandomizedBody(addRandomizedCharacters(body));
-    window.open(`mailto:${query.get('to')}`);
+    // window.open(`mailto:${query.get('to')}`);
   }
   function onBackToEdit() {
     setDoneEditing(false);
@@ -40,7 +40,7 @@ function FilterKiller() {
     <Container className="p-3">
       <Row className="justify-content-md-center">
         <Col lg={8}>
-          <h1 className="text-center mb-3">Filter Killer</h1>
+          <h1 className="text-center mb-3">Filter Buster</h1>
         </Col>
       </Row>
       <Row className="justify-content-md-center mb-0">
@@ -56,7 +56,7 @@ function FilterKiller() {
             </a>
             , we've created a new tool to help make sure that your email isn't
             ignored by your intended recipients. After you finish editing the
-            content of your email, Filter Killer inserts a randomized character
+            content of your email, Filter Buster inserts a randomized character
             into each word to bypass any filters.
           </p>
           <p className="text-center mb-3">
@@ -68,19 +68,16 @@ function FilterKiller() {
         <Col lg={8}>
           <Card>
             <Card.Body>
-              <EmailPreview
+              <EmailEdit
                 to={query.get('to')}
                 cc={query.get('cc')}
                 bcc={query.get('bcc')}
                 subject={subject}
-                randomizedSubject={randomizedSubject}
-                randomizedBody={randomizedBody}
                 body={body}
                 setSubject={setSubject}
                 setBody={setBody}
                 doneEditing={doneEditing}
                 onDoneEditing={onDoneEditing}
-                backToEdit={onBackToEdit}
               />
             </Card.Body>
           </Card>
@@ -90,4 +87,4 @@ function FilterKiller() {
   );
 }
 
-export default FilterKiller;
+export default FilterBuster;

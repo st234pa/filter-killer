@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import FilterKiller from './components/FilterKiller';
+import FilterBuster from './components/FilterBuster';
 import './App.css';
 
 export type ContentCallback = {
@@ -52,7 +52,7 @@ export function addRandomizedCharacters(content: string) {
 function App() {
   return (
     <Router>
-      <FilterKiller />
+      <FilterBuster />
     </Router>
   );
 }
