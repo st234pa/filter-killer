@@ -19,7 +19,7 @@ function randomNumber(min: number, max: number) {
 }
 
 function randomCharacter() {
-  const charCode = randomNumber(33, 47); // non-alphanumeric char code
+  const charCode = randomNumber(33, 127); // non-alphanumeric char code
   return String.fromCharCode(charCode);
 }
 
