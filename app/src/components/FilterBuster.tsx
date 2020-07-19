@@ -100,7 +100,7 @@ function FilterBuster() {
                 <Col>
                   <h2 className="break-word">
                     {subject
-                      ? doneEditing
+                      ? !doneEditing
                         ? subject
                         : randomizedSubject
                       : '[No Subject]'}
